@@ -18,7 +18,7 @@ function divideF(num, num2) {
 // decides what functions to use
 function operate(operator, num, num2) {
     switch (operator) {
-        case "add":
+        case add:
             return addF(num, num2);
         case subtract:
             return subtractF(num, num2);
@@ -28,4 +28,3 @@ function operate(operator, num, num2) {
             return divideF(num, num2);
     };
 };
-console.log(operate("add", 1, 2));
