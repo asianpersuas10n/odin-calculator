@@ -31,8 +31,32 @@ function operate(operator, num, num2) {
 
 // equal function
 function equals() {
+    if(num2 == "") {
+        return;
+    };
+    if((num == 0) && (operator == "divide")) {
+        clearF();
+        display.textContent = "Error";
+        return;
+    };
+    if(regex2.test(num)) {
+        num.replace(regex3, "");
+    };
+    if(regex2.test(num2)) {
+        num2.replace(regex3, "");
+    };
     num = operate(operator, parseInt(num2), parseInt(num));
     display.textContent = num.toString();
+};
+
+const regex3 = /\./g;
+
+// clear function
+function clearF() {
+    operator = "";
+    num = "";
+    num2 = "";
+    display.textContent = "0";
 };
 
 // buttons
@@ -54,6 +78,7 @@ const multiply = document.querySelector(".multiply");
 const divide = document.querySelector(".divide");
 const equal = document.querySelector(".equal");
 const clear = document.querySelector(".clear");
+const decimal = document.querySelector(".decimal");
 
 // buttons into display
 /* 
@@ -70,6 +95,8 @@ pass them into a operate function and return that to display
 let num = "";
 let num2 = "";
 let operator = "";
+const regex = /(?=\d{0,})[\.](?=\d{0,})/;
+const regex2 = /(?=\d{0,})\.(?!\d{1,})/;
 
 one.addEventListener("click", function() {
     display.textContent = num += "1";
@@ -100,6 +127,15 @@ nine.addEventListener("click", function() {
 });
 zero.addEventListener("click", function() {
     display.textContent = num += "0";
+});
+decimal.addEventListener("click", function() {
+    if(regex.test(num)) {
+        return;
+    };
+    if(num == "") {
+        num += "0";
+    };
+    display.textContent = num += ".";
 });
 add.addEventListener("click", function() {
     if (num2 != "") {
@@ -138,17 +174,9 @@ divide.addEventListener("click", function() {
     if (num2 != "") {
         equals();
     };
-    if (num == "") {
-        num += "0";
-    };
     operator = "divide";
     num2 = num;
     num = "";
 });
 equal.addEventListener("click", equals);
-clear.addEventListener("click", function() {
-    operator = "";
-    num = "";
-    num2 = "";
-    display.textContent = "0";
-});
+clear.addEventListener("click", clearF);
