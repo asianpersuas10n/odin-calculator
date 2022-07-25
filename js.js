@@ -105,6 +105,9 @@ add.addEventListener("click", function() {
     if (num2 != "") {
         equals();
     };
+    if (num == "") {
+        num += "0";
+    };
     operator = "add";
     num2 = num;
     num = "";
@@ -112,6 +115,9 @@ add.addEventListener("click", function() {
 subtract.addEventListener("click", function() {
     if (num2 != "") {
         equals();
+    };
+    if (num == "") {
+        num += "0";
     };
     operator = "subtract";
     num2 = num;
@@ -121,6 +127,9 @@ multiply.addEventListener("click", function() {
     if (num2 != "") {
         equals();
     };
+    if (num == "") {
+        num += "0";
+    };
     operator = "multiply";
     num2 = num;
     num = "";
@@ -129,8 +138,17 @@ divide.addEventListener("click", function() {
     if (num2 != "") {
         equals();
     };
+    if (num == "") {
+        num += "0";
+    };
     operator = "divide";
     num2 = num;
     num = "";
 });
 equal.addEventListener("click", equals);
+clear.addEventListener("click", function() {
+    operator = "";
+    num = "";
+    num2 = "";
+    display.textContent = "0";
+});
