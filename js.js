@@ -45,7 +45,7 @@ function equals() {
     if(regex2.test(num2)) {
         num2.replace(regex3, "");
     };
-    num = operate(operator, parseInt(num2), parseInt(num));
+    num = operate(operator, Number(num2), Number(num));
     display.textContent = num.toString();
 };
 
@@ -99,34 +99,54 @@ const regex = /(?=\d{0,})[\.](?=\d{0,})/;
 const regex2 = /(?=\d{0,})\.(?!\d{1,})/;
 
 one.addEventListener("click", function() {
-    display.textContent = num += "1";
+    if(num.length <= 9) {
+        display.textContent = num += "1";
+    };
 });
 two.addEventListener("click", function() {
-    display.textContent = num += "2";
+    if(num.length <= 9) {
+        display.textContent = num += "2";
+    };
 });
 three.addEventListener("click", function() {
-    display.textContent = num += "3";
+    if(num.length <= 9) {
+        display.textContent = num += "3";
+    };
 });
 four.addEventListener("click", function() {
-    display.textContent = num += "4";
+    if(num.length <= 9) {
+        display.textContent = num += "4";
+    };
 });
 five.addEventListener("click", function() {
-    display.textContent = num += "5";
+    if(num.length <= 9) {
+        display.textContent = num += "5";
+    };
 });
 six.addEventListener("click", function() {
-    display.textContent = num += "6";
+    if(num.length <= 9) {
+        display.textContent = num += "6";
+    };
 });
 seven.addEventListener("click", function() {
-    display.textContent = num += "7";
+    if(num.length <= 9) {
+        display.textContent = num += "7";
+    };
 });
 eight.addEventListener("click", function() {
-    display.textContent = num += "8";
+    if(num.length <= 9) {
+        display.textContent = num += "8";
+    };
 });
 nine.addEventListener("click", function() {
-    display.textContent = num += "9";
+    if(num.length <= 9) {
+        display.textContent = num += "9";
+    };
 });
 zero.addEventListener("click", function() {
-    display.textContent = num += "0";
+    if(num.length <= 9) {
+        display.textContent = num += "0";
+    };
 });
 decimal.addEventListener("click", function() {
     if(regex.test(num)) {
